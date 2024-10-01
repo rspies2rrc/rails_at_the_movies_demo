@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require "csv"
+
+Movie.delete_all
+ProductionCompany.delete_all
+
+# filename = Rails.root.join("db/top_movies.csv")
