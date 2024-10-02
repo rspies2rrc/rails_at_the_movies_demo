@@ -1,0 +1,11 @@
+<h2 class="text-3xl font-bold mt-5"><%= @production_company.name %></h2>
+
+<p>This company made <%= @production_company.movies.count %> of the top 100 movies.</p>
+
+<div class="mt-5">
+  <ul class="ml-10 list-disc list-outside">
+    <% @production_company.movies.each do |m| %>
+      <li><%= link_to m.title, m %></li>
+    <% end %>
+  </ul>
+</div>

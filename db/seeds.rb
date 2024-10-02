@@ -13,4 +13,22 @@ require "csv"
 Movie.delete_all
 ProductionCompany.delete_all
 
-# filename = Rails.root.join("db/top_movies.csv")
+filename = Rails.root.join("db/top_movies.csv")
+
+csv_data = File.read(filename)
+
+movies = CSV.parse(csv_data, headers: true, encoding: "utf-8")
+
+movies.each do |m|
+  production_company = ProductionCompany.find_or_create_by(name: m["production_company"])
+
+  if production_company&.valid?
+    movie = production_company.movies.create(
+      title: m["original_title"],
+      year: m["year"],
+      avg_vote: m["avg_vote"],
+      description: m["description"],
+      duration: m["duration"],
+    )
+  end
+end

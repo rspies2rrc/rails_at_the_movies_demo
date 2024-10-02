@@ -1,0 +1,8 @@
+
+<div class="mt-5">
+  <ol class="ml-10 list-decimal list-outside">
+    <% @movies.each do |movie| %>
+      <li><%= link_to movie.title, movie %> was produced by <%= movie.production_company.name %></li>
+    <% end %>
+  </ol>
+</div>
