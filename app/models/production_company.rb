@@ -2,7 +2,7 @@ class ProductionCompany < ApplicationRecord
   has_many :movies
   validates :name, uniqueness: true
 
-  def order_by_movies
+  def self.order_by_movies
     self.select("production_companies.*")
         .select("COUNT(production_company_id) as movie_count")
         .left_outer_joins(:movies)
