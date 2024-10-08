@@ -1,0 +1,27 @@
+<h2 class="text-3xl font-bold mt-5"><%= @movie.title %></h2>
+
+<p class="mt-5">
+  <%= @movie.description %>
+</p>
+
+<div class="w-3/4">
+  <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+  </div>
+</div>
+
+<div class="mt-5">
+  <strong>Rating:</strong> <%= @movie.avg_vote %>
+</div>
+
+<div class="mt-5">
+  <strong>Release Year:</strong> <%= @movie.year %>
+</div>
+
+<div class="mt-5">
+  <strong>Duration:</strong> <%= @movie.duration %> minutes
+</div>
+
+<div class="mt-5">
+  <strong>Produced by:</strong> <%= link_to @movie.production_company.name, @movie.production_company %>
+</div>
