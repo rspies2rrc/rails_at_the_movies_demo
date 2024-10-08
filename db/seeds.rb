@@ -12,6 +12,7 @@ require "csv"
 
 Movie.delete_all
 ProductionCompany.delete_all
+Page.delete_all
 
 filename = Rails.root.join("db/top_movies.csv")
 
@@ -32,3 +33,15 @@ movies.each do |m|
     )
   end
 end
+
+Page.create(
+  title: "about",
+  content: "Data provided by...",
+  permalink: "about_us"
+)
+
+Page.create(
+  title: "Contact Us",
+  content: "We can be reached at mycoolemailaddress@rrc.ca",
+  permalink: "contact_us"
+)
