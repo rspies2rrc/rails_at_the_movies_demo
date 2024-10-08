@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_02_190724) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_08_173453) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.integer "year"
@@ -21,6 +21,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_02_190724) do
     t.integer "production_company_id", null: false
     t.integer "duration"
     t.index ["production_company_id"], name: "index_movies_on_production_company_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "permalink"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "production_companies", force: :cascade do |t|
