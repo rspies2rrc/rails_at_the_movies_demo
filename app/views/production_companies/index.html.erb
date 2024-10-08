@@ -4,11 +4,6 @@
 
 <div class="mt-5">
   <ol class="ml-10 list-decimal list-outside">
-    <% @production_companies.each do |production_company| %>
-      <li>
-        <%= link_to production_company.name, production_company %>
-        <em>Has made <%= pluralize production_company.movie_count, "movie" %></em>
-      </li>
-    <% end %>
+    <%= render @production_companies %>
   </ol>
 </div>

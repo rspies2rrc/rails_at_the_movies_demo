@@ -8,8 +8,6 @@
   </ol>
   <h2 class="text-3xl font-bold mt-5">Top 10 Production Companies</h2>
   <ol class="ml-10 mt-5 list-decimal list-outside">
-    <% @production_companies.each do |production_company| %>
-      <li><%= link_to production_company.name, production_company %></li>
-    <% end %>
+    <%= render @production_companies %>
   </ol>
 </div>
