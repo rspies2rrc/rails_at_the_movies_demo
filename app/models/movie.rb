@@ -8,4 +8,8 @@ class Movie < ApplicationRecord
   validates :avg_vote, numericality: true
   validates :duration, numericality: true
   validates :title, :description, :avg_vote, :year, :duration, presence: true
+
+  def genre_list
+    genres.map(&:name).join(", ")
+  end
 end
