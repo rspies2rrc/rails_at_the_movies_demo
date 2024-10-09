@@ -13,6 +13,8 @@ require "csv"
 Movie.delete_all
 ProductionCompany.delete_all
 Page.delete_all
+Genre.delete_all
+MovieGenre.delete_all
 
 filename = Rails.root.join("db/top_movies.csv")
 
@@ -31,8 +33,23 @@ movies.each do |m|
       description: m["description"],
       duration: m["duration"],
     )
+
+    # unless movie&valid?
+    #  puts "Invalid movie #{movie.title}"
+    # end
+
+    genres = m["genre"].split(",").map(&:strip)
+    genres.each do |genre_name|
+      genre = Genre.find_or_create_by(name: genre_name)
+      MovieGenre.create(movie: movie, genre: genre)
+    end
   end
 end
+
+puts "Created #{ProductionCompany.count} production companies"
+puts "Created #{Movie.count} movies"
+puts "Created #{Genre.count} genres"
+puts "Created #{MovieGenre.count} movie genre relationships"
 
 Page.create(
   title: "about",

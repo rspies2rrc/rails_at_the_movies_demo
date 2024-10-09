@@ -1,5 +1,8 @@
 class Movie < ApplicationRecord
   belongs_to :production_company
+  has_many :movie_genres
+  has_many :genres, through: :movie_genres
+
   validates :title, uniqueness: true
   validates :year, numericality: true
   validates :avg_vote, numericality: true
