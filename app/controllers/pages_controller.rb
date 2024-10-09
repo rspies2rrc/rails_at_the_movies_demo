@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  http_basic_authenticate_with name: "admin", password: "s3cr3tpassword", except: :permalink
   before_action :set_page, only: %i[ show edit update destroy ]
 
   # GET /pages or /pages.json
