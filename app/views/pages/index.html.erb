@@ -29,16 +29,16 @@
           <%= page.title %>
         </td>
         <td>
-          <%= page.content %>
+          <%= truncate(page.content, length: 30 , omission: '...') %>
         </td>
         <td>
           <%= link_to "Show this page", permalink_path(page.permalink) %>
         </td>
         <td>
-          <%= button_to "Edit this page", edit_page_path(page), form_class: "btn btn-blue" %>
+          <%= button_to "Edit this page", edit_page_path(page), form_class: "contents", class: "btn btn-blue" %>
         </td>
         <td>
-          <%= button_to "Destroy this page", page, method: :delete, form_class: "btn btn-blue" %>
+          <%= button_to "Destroy this page", page, method: :delete, form_class: "contents", class: "btn btn-blue" %>
         </td>
       </tr>
     <% end %>
