@@ -22,6 +22,10 @@
   <body>
     <div class="ml-10">
       <h1 class="text-5xl font-bold"><%= link_to "Top 100 Movies on IMDB", root_path %></h1>
+      <%= form_with url: search_movies_path, method: :get do |form| %>
+        <%= text_field_tag(:keywords, nil, class: "input", placeholder: "search for movies") %>
+        <%= submit_tag("Search", class: "btn") %>
+      <% end %>
       <%= yield %>
       <%= render partial: "common/footer" %>
     </div>
